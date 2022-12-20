@@ -1,0 +1,59 @@
+1) Bubble Sort 
+
+void BubbleSort(int arr[],int size)
+{
+for(int i=0;i<size-1;i++)
+{
+for(int j=0;j<size-1-i;j++)
+{
+if(arr[j]>arr[j+1])
+swap(arr[j],arr[j+1]);
+}
+}
+}
+
+Worst Case Complexity - O(N^2) [Array fully unsorted]
+Best Case Complexity - O(N) [Array is sorted]
+Average Case Complexity - O(N^2)
+
+2) Selection Sort
+
+void SelectionSort(int arr[],int size)
+{
+for(int i=0;i<size-1;i++)
+{
+int min = arr[i];
+for(int j=i+1;j<size;j++)
+{
+if(arr[j]<min)
+{
+min = arr[j];
+swap(arr[j],min);
+}
+}
+}
+}
+
+Worst Case Complexity - O(N^2) [Array fully unsorted]
+Best Case Complexity - O(N^2) [Array is Sorted]
+Average Case Complexity - O(N^2) 
+
+3) Insertion Sort
+
+void InsertionSort(int arr[],int size,int key)
+{
+for(int i=1;i<size;i++)
+{
+key = arr[i];
+int j=i;
+while((j>0)&&(arr[j-1]>key)
+{
+arr[j]=arr[j-1];
+j--;
+}
+key = arr[j];
+}
+}
+
+Worst and Average Case Complexity - O(N^2)
+Best Case Complexity - O(N)

@@ -1,0 +1,106 @@
+Array implementation:-
+
+//Include <queues> in header
+Creation :-
+
+queue<int> q; (using STL)
+int arr[size]; (creating an array of 'size') 
+int front;
+int rear;
+
+i) Enqueue Operation:-
+
+void Enqueue(int data)
+{
+if(front==rear)
+{
+cout<<"queue is full";
+}
+else
+arr[rear]=data;
+rear++;
+}
+
+ii) Dequeue Operation:-
+
+void Dequeue()
+{
+if(front==rear)
+return -1;
+else
+{
+arr[front]=-1;
+front++;
+if(front==rear)
+front = 0;
+rear = 0;
+}
+}
+
+iii) Is Empty operation:-
+
+bool IsEmpty()
+{
+if(front==rear)
+return true;
+else
+return false;
+}
+
+Linked List Implementation:-
+
+class Node
+{
+public:
+int data;
+Node*next;
+Node(int data)
+{
+this->data = data;
+this->next = NULL:
+}
+};
+
+i) Enqueue Operation:-
+
+void Enqueue(int data)
+{
+Node*temp=new Node(data);
+head = head->next;
+temp->next=NULL;
+delete temp;
+}
+
+ii) Dequeue Operation
+
+void Dequeue(Node*&head)
+{
+Node*curr=head;
+Node*prev=NULL;
+int count = 1,size = 0;
+Node*temp=head;
+while(temp!=NULL)
+{
+size++;
+temp=temp->next;
+}
+while(count<=size)
+{
+prev=curr;
+curr=curr->next;
+count++;
+}
+prev->next = curr->next;
+curr->next = NULL;
+delete curr;
+}
+
+iii) Is Empty Operation:-
+
+bool IsEmpty()
+{
+if(head!=NULL)
+return false;
+else
+return true;
+}

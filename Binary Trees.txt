@@ -1,0 +1,89 @@
+Implementation :-
+
+class Node
+{
+public:
+int data;
+Node*right;
+Node*left;
+Node(int data)
+{
+this->data = data;
+this->right = NULL;
+this->left = NULL;
+}
+};
+
+Creating a Tree :-
+
+Node* Creation(Node*&root,int data)
+{
+root = new Node(data);
+if(data==-1)
+return NULL;
+root->left = Creation(root->left,data);
+root->right = Creation(root->right,data);
+}
+
+Level Order Traversal :-
+
+void LevelOrderTraversal(Node*&root ,int data)
+{
+queue<int> q;
+q.push(root->data);
+q.push(NULL);
+while(q.empty()!=true)
+{
+Node*temp = q.front();
+q.pop();
+if(temp==NULL)
+{
+cout<<endl;
+if(q.empty()!=true)
+q.push(NULL);
+}
+else
+{
+cout<<temp->data;
+if(temp->right!=NULL)
+q.push(temp->right);
+if(temp->left!=NULL)
+q.push(temp->left)
+}
+}
+}
+
+Inorder Traversal :-
+
+void InorderTraversal(Node*&root)
+{
+if(root==NULL)
+return ;
+
+InorderTraversal(root->left);
+cout<<root->data;
+InorderTraversal(root->right);
+}
+
+PreOrder Traversal :-
+
+void PreOrderTraversal(Node*&root)
+{
+if(root==NULL)
+return;
+cout<<root->data;
+PreOrderTraversal(root->left);
+PreOrderTraversal(root->right);
+}
+
+Post Order Traversal :-
+
+void PostOrderTraversal(Node*&root)
+{
+if(root==NULL)
+return;
+PostOrderTraversal(root->left);
+PostOrderTraversal(root->right);
+cout<<root->data;
+}
+   

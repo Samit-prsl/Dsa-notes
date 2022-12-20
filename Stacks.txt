@@ -1,0 +1,109 @@
+Array implementation:-
+
+//Include <stacks> in header
+Creation :-
+
+stack<int> s; (using STL)
+int arr[size]; (creating an array of 'size') 
+
+Push operation :-
+
+void Push(int data)
+{
+int top = -1;
+if(size-top > 1)
+{
+top++;
+arr[top] = data;
+}
+else
+cout<<"Stack Overflow";
+}
+
+Pop operation :-
+
+int pop()
+{
+if(top>=0)
+{
+return arr[top];
+top--;
+}
+else
+cout<<"Stack Underflow";
+}
+
+peak operation:-
+
+int peak()
+{
+if((top>=0)&&(top<size))
+return arr[top];
+}
+
+IsEmpty operation:-
+
+bool IsEmpty()
+{
+if(top==-1)
+return true;
+else
+return false;
+}
+ 
+
+Linked list implementation of stacks
+
+Linked list implementation:-
+
+class Node
+{
+public:
+int data;
+Node* next;
+
+Node(int data)
+{
+this->data = data;
+this->next = NULL:
+}
+};
+
+i) Push Operation:-
+
+void Push(Node*&head,int data)
+{
+Node* temp = new Node(data);
+temp->next = head;
+head = temp;
+}
+
+ii) Pop Operation:-
+
+void Pop(Node*&head)
+{
+Node*temp = head;
+head = head->next;
+temp->next = NULL;
+delete temp;
+}
+
+iii) Peak Operation
+
+void Peak(Node*&head)
+{
+if(head==NULL)
+cout<<"Stack empty";
+else
+cout<<head->data;
+}
+
+iv) Is Empty Operation
+
+bool IsEmpty()
+{
+if(head!=NULL)
+return false;
+else
+return true;
+}

@@ -1,0 +1,125 @@
+Implementation :-
+
+class Node
+{
+public:
+int data;
+Node*next;
+Node*prev;
+
+Node(int data)
+{
+this->data = data;
+this->next = NULL;
+this->prev = NULL;
+}
+};
+
+Traversing the Doubly Linked List:-
+
+void TraverseAndLength(Node*&head)
+{
+Node*temp = head;
+int length = 0;
+while(temp!=NULL)
+{
+cout<<temp->data;
+temp = temp->next;
+length++;
+}
+cout<<length;
+}
+
+Insertion :-
+
+i) At Head
+
+void InsertAtHead(Node*&head , int data)
+{
+if(head == NULL)
+{
+Node* temp = new Node(data);
+head = temp;
+}
+else
+{
+Node* temp = new Node(data);
+temp->next = head;
+head->prev = temp;
+head = temp;
+}
+}
+
+ii) At End
+
+void InsertAtTail(Node*&tail,int data)
+{
+if(tail == NULL)
+{
+Node* temp = new Node(data);
+tail = temp;
+}
+else
+{
+Node* temp = new Node(data);
+tail->next = temp;
+temp->prev = tail;
+tail = temp;
+}
+}
+
+
+iii) At Middle
+
+void InsertAtMiddle(Node*&head ,int position , int data)
+{
+Node*temp = head;
+Node*pre = NULL;
+int count = 1;
+while(count<=position)
+{
+prev = temp;
+temp = temp->next;
+count++;
+}
+Node* new_node = new Node(data);
+new_node->next = temp;
+temp->prev = new_node;
+pre->next=new_node;
+new_node->prev = pre;
+}
+
+
+Deletion 
+
+i) Deletion at head
+
+void DeleteAtHead(Node*&head)
+{
+Node*temp=head;
+head = head->next;
+head->next->prev = NULL:
+temp->next = NULL;
+delete temp;
+}
+
+ii) Deletion at middle and end
+
+void DeleteAtMiddleAndEnd(Node*&head,int position,int data)
+{
+Node*curr = head;
+Node*pre = NULL;
+int count = 1;
+while(count<=position)
+{
+pre = curr;
+curr = curr->next;
+count++;
+}
+pre->next=curr->next;
+curr->next->prev=pre;
+curr->next=NULL;
+curr->prev=NULL;
+delete curr;
+}
+   

@@ -1,0 +1,88 @@
+Implementation :-
+
+class Node
+{
+public:
+int data;
+Node*right;
+Node*left;
+Node(int data)
+{
+this->data = data;
+this->right = NULL;
+this->left = NULL;
+}
+};
+
+i) Inserting in BST :-
+
+Node* InsertBst(Node*&root,int d)
+{
+if(root==NULL)
+{
+root = new Node(d);
+return root;
+}
+if(d<root->data)
+root->left = InsertBst(root->left,d);
+else if(d>root->data)
+root->right = InsertBst(root->right,d);
+}
+
+ii) Searching in BST :-
+
+bool search(Node*&root,data)
+{
+if(root==NULL)
+return false;
+else if(root->data == data)
+return true;
+else if(root->data<data)
+return search(root->right ,data);
+else if(root->data>data)
+return search(root->left ,data);
+}
+
+iii) Maximum and Minimum values in BST
+
+void MaxMin(Node*&root)
+{
+Node* temp = root;
+while(temp->left!=NULL)
+{
+temp = temp->left;
+}
+return temp;
+while(temp->right==NULL)
+{
+temp=temp->right;
+}
+return temp;
+}
+
+iv) Deletion in BST
+
+void Delete(Node*&root,int x)
+{
+if(root==NULL)
+return;
+else if(root->data==x)
+{
+if((root->left == NULL)&&(root->right==NULL))
+{delete root;
+return NULL;}
+else if((root->left!=NULL)&&(root->right==NULL))
+{Node* temp = root->left;
+delete root;
+return temp;}
+else if((root->left==NULL)&&(root->right!=NULL))
+{Node* temp=root->right;
+delete root;
+return temp;}
+else
+{int min = MinValue(root->right)->data;
+root->data = min;
+root->right = Delete(root->right,mini);
+return root;}
+}
+

@@ -1,0 +1,4 @@
+The three laws of Recursion :-
+i) The function should be calling itself recursively.
+ii) A recursive function must have a base case.
+iii) A recursive algorithm must change and move towards the base case.tghgy66

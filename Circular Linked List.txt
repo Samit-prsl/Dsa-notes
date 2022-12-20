@@ -1,0 +1,47 @@
+Implementation:-
+
+class Node
+{
+public:
+int data ;
+Node*next;
+Node(int data)
+{
+this->data = data;
+this->next = NULL;
+}
+};
+
+i) Adding a Node in Circular Linked list.
+
+void Add(Node*&tail,int flag,int data)
+{
+Node*temp = tail;
+while(temp!=NULL)
+{
+if(temp->data==flag)
+break;
+temp=temp->next;
+}
+Node* new_node = new Node(data);
+new_node->next = temp-> next;
+temp->next = new_node;
+}
+
+ii) Deleting a Node in CLL:-
+
+void Delete(Node*&tail,int flag)
+{
+Node* curr = tail;
+Node* prev = NULL;
+while(curr!=NULL)
+{
+prev = curr
+if(temp->data==flag)
+break;
+temp = temp->next;
+}
+prev->next = curr->next;
+curr->next = NULL;
+delete curr;
+} 
